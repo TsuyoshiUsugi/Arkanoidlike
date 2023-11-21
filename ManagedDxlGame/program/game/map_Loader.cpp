@@ -12,6 +12,7 @@ void map_Loader::LoadMap()
             // pos.x = { 100.0f + k * Block::CHIP_SIZE };
             // pos.y = { 100.0f + i * Block::CHIP_SIZE };
             // blocks.emplace_back( new Block(pos) );
+            
         }
     }
 }
