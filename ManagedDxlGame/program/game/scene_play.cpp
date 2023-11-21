@@ -2,6 +2,8 @@
 #include "scene_play.h"
 #include "player.h"
 #include "bullet.h"
+#include "game_mamanger.h"
+#include "scene_result.h"
 
 ScenePlay::ScenePlay() {
 	auto player1 = new Player(PlayerType::Player1);
@@ -13,14 +15,24 @@ ScenePlay::ScenePlay() {
 	objects_.emplace_back( player_2_ );
 }
 
+void ScenePlay::callResult()
+{
+	GameManager* mgr = GameManager::GetInstance();
+	mgr->changeScene( new scene_result );
+}
+
 //各プレイヤーと弾の当たり判定を行う
 void ScenePlay::checkHit() {
 	// オブジェクトのアップデート処理
 	auto it = p1_bullet_list_.begin();
 	while (it != p1_bullet_list_.end()) {
 		auto pos = (*it)->pos_;	//弾丸の位置
-		if (tnl::IsIntersectPointRect(pos.x, pos.y, player_2_->pos_.x, player_2_->pos_.y, 5, 5)) {	//当たり判定を行う
+		if (tnl::IsIntersectPointRect(pos.x, pos.y, player_2_->pos_.x, player_2_->pos_.y, 5, 5))
+		{
+			//当たり判定を行う
 			DrawStringEx(10, 20, -1, "HitP1");
+			callResult();
+			break;
 		}
 		it++;
 	}
@@ -30,6 +42,8 @@ void ScenePlay::checkHit() {
 		auto pos = (*it)->pos_;	//弾丸の位置
 		if (tnl::IsIntersectPointRect(pos.x, pos.y, player_1_->pos_.x, player_1_->pos_.y, 5, 5)) {	//当たり判定を行う
 			DrawStringEx(10, 30, -1, "HitP2");
+			callResult();
+			break;
 		}
 		it++;
 	}

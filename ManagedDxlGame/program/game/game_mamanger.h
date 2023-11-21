@@ -1,4 +1,5 @@
 #pragma once
+#include "player.h"
 #include "../dxlib_ext/dxlib_ext.h"
 
 // 前方宣言
@@ -8,6 +9,7 @@ class SceneBase;
 // シングルトン
 class GameManager {
 private:
+	PlayerType winner = PlayerType::None;
 	GameManager();
 	~GameManager();
 public:

@@ -12,6 +12,7 @@ private:
 	std::list<Bullet*> p2_bullet_list_;
 public :
 	ScenePlay();
+	void callResult();
 
 	void spawnBullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
 	void checkHit();

@@ -3,7 +3,7 @@
 #include "object.h"
 
 //プレイヤーの種類を判別する
-enum class PlayerType { Player1, Player2, };
+enum class PlayerType { None, Player1, Player2, };
 
 // プレイヤークラス( 派生クラス )
 class Player : public Object {
