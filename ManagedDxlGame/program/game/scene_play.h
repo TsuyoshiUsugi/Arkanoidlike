@@ -10,14 +10,18 @@ private:
 	Player* player_2_;
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
+	std::vector<std::vector<int>> map_csv ;
 public :
 	ScenePlay();
 	void callResult(PlayerType winner);
+	void LoadMap();
 
 	void spawnBullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
+	void updateBullet(float delta_time);
 	void checkHit();
 
 	void update(float delta_time) override ;
+	void drawBullet();
 	void draw() override;
 };
 
