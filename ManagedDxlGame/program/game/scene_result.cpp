@@ -7,6 +7,12 @@
 
 class GameManager;
 
+scene_result::scene_result()
+{
+    mgr = GameManager::GetInstance();
+}
+
+
 void scene_result::update( float delta_time ) {
     SceneBase::update(delta_time);
 
@@ -20,5 +26,13 @@ void scene_result::update( float delta_time ) {
 void scene_result::draw() {
     SceneBase::draw();
     DrawStringEx(10, 10, -1, "scene Result");
+    if (mgr->getWinner() == PlayerType::Player1)
+    {
+        DrawStringEx(10, 20, -1, "Player1 win");
+    }
+    else
+    {
+        DrawStringEx(10, 20, -1, "Player2 win");
+    }
 }
 

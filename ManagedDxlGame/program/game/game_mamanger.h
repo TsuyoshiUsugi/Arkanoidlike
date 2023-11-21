@@ -9,7 +9,7 @@ class SceneBase;
 // シングルトン
 class GameManager {
 private:
-	PlayerType winner = PlayerType::None;
+	PlayerType winner_ = PlayerType::None;
 	GameManager();
 	~GameManager();
 public:
@@ -18,6 +18,8 @@ public:
 	static void Destroy();
 
 	void changeScene( SceneBase* scene );
+	void setWinner(PlayerType winner);
+	PlayerType getWinner();
 
 	void update(float delta_time);
 	void draw();
