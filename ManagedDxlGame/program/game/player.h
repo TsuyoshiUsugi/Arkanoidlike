@@ -3,7 +3,7 @@
 #include "object.h"
 
 //プレイヤーの種類を判別する
-enum class PlayerType { Player1, Player2, };
+enum class PlayerType { None, Player1, Player2, };
 
 // プレイヤークラス( 派生クラス )
 class Player : public Object {
@@ -17,6 +17,8 @@ private:
 public:
 	Player(PlayerType playerType) {
 		playerType_ = playerType;
+		width_ = 30;
+		hight_ = 50;
 
 		if (playerType_ == PlayerType::Player1)
 			pos_ = left_player_start_vector3_pos_;

@@ -10,6 +10,8 @@ public:
 	bool is_alive_ = true;
 
 	tnl::Vector3 pos_;
+	float width_;
+	float hight_;
 
 	virtual void update(float delta_time) {} ;
 	virtual void draw() {} ;

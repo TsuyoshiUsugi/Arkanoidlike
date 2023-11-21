@@ -7,7 +7,7 @@
 GameManager::GameManager() {
 
 	process_scene_ = new SceneTitle() ;
-
+	setWinner(PlayerType::None);
 }
 
 GameManager::~GameManager() {
@@ -18,6 +18,17 @@ GameManager* GameManager::GetInstance() {
 	if (!instance) instance = new GameManager();
 	return instance;
 }
+
+void GameManager::setWinner(PlayerType winner)
+{
+	winner_ = winner;
+}
+
+PlayerType GameManager::getWinner()
+{
+	return winner_;
+}
+
 
 void GameManager::Destroy() {
 	delete GetInstance() ;
