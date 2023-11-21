@@ -2,6 +2,7 @@
 #include "player.h"
 #include "scene_play.h"
 
+//弾の発射処理
 void Player::ShootBullet()
 {
 	if (playerType_ == PlayerType::Player1)
@@ -45,12 +46,11 @@ void Player::update(float delta_time) {
 
 	// 左右キー移動
 	MoveHorizontal();
-
 	// 弾丸発射
 	ShootBullet();
 }
 
 // プレイヤ描画
 void Player::draw() {
-	DrawBoxEx(pos_, 30, 50, false);
+	DrawBoxEx(pos_, width_, hight_, false);
 }
