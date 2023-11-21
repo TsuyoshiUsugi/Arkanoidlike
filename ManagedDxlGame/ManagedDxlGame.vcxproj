@@ -172,6 +172,7 @@
     <ClCompile Include="program\game\bullet.cpp" />
     <ClCompile Include="program\game\game_managercpp.cpp" />
     <ClCompile Include="program\game\gm_main.cpp" />
+    <ClCompile Include="program\game\map_Loader.cpp" />
     <ClCompile Include="program\game\player.cpp" />
     <ClCompile Include="program\game\scene_base.cpp" />
     <ClCompile Include="program\game\scene_play.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="program\game\bullet.h" />
     <ClInclude Include="program\game\game_mamanger.h" />
     <ClInclude Include="program\game\gm_main.h" />
+    <ClInclude Include="program\game\map_Loader.h" />
     <ClInclude Include="program\game\object.h" />
     <ClInclude Include="program\game\player.h" />
     <ClInclude Include="program\game\scene_base.h" />

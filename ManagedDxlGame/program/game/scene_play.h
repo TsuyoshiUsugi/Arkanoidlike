@@ -1,5 +1,6 @@
 #pragma once
 #include "bullet.h"
+#include "map_Loader.h"
 #include "player.h"
 #include "../dxlib_ext/dxlib_ext.h"
 #include "scene_base.h"
@@ -10,7 +11,8 @@ private:
 	Player* player_2_;
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
-	std::vector<std::vector<int>> map_csv ;
+	map_Loader* map_loader_;
+
 public :
 	ScenePlay();
 	void callResult(PlayerType winner);

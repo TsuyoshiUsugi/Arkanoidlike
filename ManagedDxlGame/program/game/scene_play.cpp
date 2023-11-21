@@ -13,6 +13,8 @@ ScenePlay::ScenePlay() {
 	auto player2 = new Player(PlayerType::Player2);
 	player_2_ = player2;
 	objects_.emplace_back( player_2_ );
+
+	map_loader_ = new map_Loader();
 }
 
 void ScenePlay::callResult(PlayerType winner)
@@ -21,13 +23,6 @@ void ScenePlay::callResult(PlayerType winner)
 	mgr->setWinner(winner);
 	mgr->changeScene( new scene_result () );
 }
-
-//Map情報をロードします
-void ScenePlay::LoadMap()
-{
-	
-}
-
 
 //各プレイヤーと弾の当たり判定を行う
 void ScenePlay::checkHit() {
