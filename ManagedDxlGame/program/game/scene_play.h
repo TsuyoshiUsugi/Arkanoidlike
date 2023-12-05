@@ -1,6 +1,6 @@
 #pragma once
 #include "bullet.h"
-#include "map_Loader.h"
+#include "map_manager.h"
 #include "player.h"
 #include "../dxlib_ext/dxlib_ext.h"
 #include "scene_base.h"
@@ -11,7 +11,7 @@ private:
 	Player* player_2_;
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
-	map_Loader* map_loader_;
+	map_manager* map_manager_;
 
 public :
 	ScenePlay();

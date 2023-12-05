@@ -10,7 +10,7 @@ Bullet::Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir) {
 // バレットアップデート
 void Bullet::update(float delta_time) {
 	// 移動処理と画面外に出たら生存フラグ off
-	pos_ += dir_;
+	pos_ += dir_ * speed_;
 	if (pos_.y < 0) is_alive_ = false;
 }
 

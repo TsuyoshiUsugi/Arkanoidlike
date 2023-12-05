@@ -6,15 +6,12 @@
 #include "scene_result.h"
 
 ScenePlay::ScenePlay() {
-	auto player1 = new Player(PlayerType::Player1);
-	player_1_ = player1;
+	player_1_ = new Player(PlayerType::Player1);
 	objects_.emplace_back( player_1_ );
-
-	auto player2 = new Player(PlayerType::Player2);
-	player_2_ = player2;
+	player_2_ = new Player(PlayerType::Player2);
 	objects_.emplace_back( player_2_ );
 
-	map_loader_ = new map_Loader();
+	map_manager_ = new map_manager();
 }
 
 void ScenePlay::callResult(PlayerType winner)
@@ -110,6 +107,7 @@ void ScenePlay::drawBullet()
 	for (auto obj : p2_bullet_list_) {
 		obj->draw();
 	}
+	map_manager_->DrawMap();
 }
 
 void ScenePlay::draw() {
