@@ -13,4 +13,7 @@ class in_game_block
         pos_ = pos;
         ghl_ = ghl;
     }
+
+public:
+    void draw();
 };

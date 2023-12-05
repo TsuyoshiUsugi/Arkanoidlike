@@ -1,5 +1,6 @@
 ﻿#include "map_manager.h"
 #include "../dxlib_ext/dxlib_ext.h"
+#include "in_game_block.h"
 
 //Map情報をロードします
 void map_manager::load_map()
@@ -17,7 +18,7 @@ void map_manager::load_map()
     //     }
     // }
 
-    blocks_ = std::make_shared<std::vector<in_game_block>>();
+    blocks_ = std::vector<std::shared_ptr<in_game_block>>();
 
     
     //テスト用のマップ生成(5*5)
@@ -26,7 +27,7 @@ void map_manager::load_map()
         for (int k = 0; k < 5; k++)
         {
             auto hdl = LoadGraph(block_graphic_paths_[0].c_str());
-            auto pos = std::make_shared<tnl::Vector3>(0 * i, 0 * k, 0);
+            auto pos = std::make_shared<tnl::Vector3>(0 + vert_block_space_ * i, 0 + hori_block_space_ * k, 0);
             auto block = std::make_shared<in_game_block>(hdl, pos);
             
             blocks_.emplace_back(block);
@@ -37,7 +38,7 @@ void map_manager::load_map()
 //Mapの描画処理
 void map_manager::draw_map()
 {
-    for (auto& block : blocks_) {
-        block.
+    for (const auto& block : blocks_) {
+        block->draw();
     }
 }

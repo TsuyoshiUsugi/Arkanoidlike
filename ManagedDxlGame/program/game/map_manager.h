@@ -11,10 +11,14 @@ private:
     //保持しているブロック
     std::vector<std::shared_ptr<in_game_block>> blocks_;
     //ブロックをロードするパス
-    static std::vector<std::string> block_graphic_paths_ = std::vector<std::string>
+    std::vector<std::string> block_graphic_paths_ = std::vector<std::string>
     {
         "graphics/block.png",
     };
+
+    //各ブロックの間の値
+    int vert_block_space_ = 60;  //各ブロックサイズは30*50
+    int hori_block_space_ = 40;
 
 public:
     void load_map();
