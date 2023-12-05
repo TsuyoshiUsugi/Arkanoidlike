@@ -12,6 +12,7 @@ ScenePlay::ScenePlay() {
 	objects_.emplace_back( player_2_ );
 
 	map_manager_ = new map_manager();
+	map_manager_->load_map();
 }
 
 void ScenePlay::callResult(PlayerType winner)
@@ -22,7 +23,7 @@ void ScenePlay::callResult(PlayerType winner)
 }
 
 //各プレイヤーと弾の当たり判定を行う
-void ScenePlay::checkHit() {
+void ScenePlay::check_hit() {
 	// オブジェクトのアップデート処理
 	auto it = p1_bullet_list_.begin();
 	PlayerType winner = PlayerType::None;
@@ -55,7 +56,7 @@ void ScenePlay::checkHit() {
 }
 
 //弾丸を生成する
-void ScenePlay::spawnBullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
+void ScenePlay::spawn_bullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
 	auto bullet = new Bullet( spawn_pos, dir);
 	if (isP1Shot)
 	{
@@ -96,7 +97,7 @@ void ScenePlay::update(float delta_time) {
 	SceneBase::update(delta_time);
 
 	updateBullet(delta_time);
-	checkHit();
+	check_hit();
 }
 
 void ScenePlay::drawBullet()
@@ -107,7 +108,7 @@ void ScenePlay::drawBullet()
 	for (auto obj : p2_bullet_list_) {
 		obj->draw();
 	}
-	map_manager_->DrawMap();
+	map_manager_->draw_map();
 }
 
 void ScenePlay::draw() {

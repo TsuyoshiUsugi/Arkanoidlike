@@ -18,9 +18,9 @@ public :
 	void callResult(PlayerType winner);
 	void LoadMap();
 
-	void spawnBullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
+	void spawn_bullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
 	void updateBullet(float delta_time);
-	void checkHit();
+	void check_hit();
 
 	void update(float delta_time) override ;
 	void drawBullet();

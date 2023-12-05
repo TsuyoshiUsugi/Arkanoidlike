@@ -170,6 +170,7 @@
     <ClCompile Include="program\dxlib_ext\dxlib_ext_texture.cpp" />
     <ClCompile Include="program\dxlib_ext\OBJLoader.cpp" />
     <ClCompile Include="program\game\bullet.cpp" />
+    <ClCompile Include="program\game\in_game_block.cpp" />
     <ClCompile Include="program\game\game_managercpp.cpp" />
     <ClCompile Include="program\game\gm_main.cpp" />
     <ClCompile Include="program\game\map_manager.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="program\dxlib_ext\dxlib_ext_texture.h" />
     <ClInclude Include="program\dxlib_ext\OBJLoader.h" />
     <ClInclude Include="program\game\bullet.h" />
+    <ClInclude Include="program\game\in_game_block.h" />
     <ClInclude Include="program\game\game_mamanger.h" />
     <ClInclude Include="program\game\gm_main.h" />
     <ClInclude Include="program\game\map_manager.h" />

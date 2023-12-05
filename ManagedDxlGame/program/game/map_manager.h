@@ -1,28 +1,24 @@
 ﻿#pragma once
 #include "../dxlib_ext/dxlib_ext.h"
 
-class block;
+class in_game_block;
 
 class map_manager
 {
 private:
+    //ロードしたマップの情報
     std::vector<std::vector<int>> map_csv_ ;
-    std::shared_ptr<block> blocks_;
-    //std::Vec block
+    //保持しているブロック
+    std::vector<std::shared_ptr<in_game_block>> blocks_;
+    //ブロックをロードするパス
+    static std::vector<std::string> block_graphic_paths_ = std::vector<std::string>
+    {
+        "graphics/block.png",
+    };
+
 public:
-    void LoadMap();
-    void DrawMap();
+    void load_map();
+    void draw_map();
 };
 
-//XY座標となんの画像を表示するかの情報を持つブロッククラス
-class block
-{
-    tnl::Vector3 pos_;
-    tnl::Vector2i size_;
-    int ghl_;    //グラフィックハンドル
-public:
-    block(int ghl)
-    {
-        ghl_ = ghl;
-    }
-};
+
