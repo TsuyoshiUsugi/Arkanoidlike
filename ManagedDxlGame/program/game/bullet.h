@@ -6,6 +6,7 @@
 class Bullet : public Object {
 private:
 	tnl::Vector3 dir_;
+	float speed_ = 10;
 public:
 	Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir);
 	void update(float delta_time) override ;

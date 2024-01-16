@@ -12,7 +12,7 @@ void Player::ShootBullet()
 			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
 				GameManager::GetInstance()->process_scene_ ) ;
 			const tnl::Vector3 dir = {1 ,0 , 0};
-			sc_play->spawnBullet( spawn_pos , dir_, true);
+			sc_play->spawn_bullet( spawn_pos , dir_, true);
 		}
 	}
 	else
@@ -22,7 +22,7 @@ void Player::ShootBullet()
 			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
 				GameManager::GetInstance()->process_scene_ ) ;
 		
-			sc_play->spawnBullet( spawn_pos, dir_, false);
+			sc_play->spawn_bullet( spawn_pos, dir_, false);
 		}
 	}
 }

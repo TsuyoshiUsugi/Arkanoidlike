@@ -8,8 +8,8 @@ enum class PlayerType { None, Player1, Player2, };
 // プレイヤークラス( 派生クラス )
 class Player : public Object {
 private:
-	tnl::Vector3 left_player_start_vector3_pos_ = { 300, 500, 0 };
-	tnl::Vector3 right_player_start_vector3_pos_ = { 600, 500, 0 };
+	tnl::Vector3 left_player_start_vector3_pos_ = { 100, 500, 0 };
+	tnl::Vector3 right_player_start_vector3_pos_ = { 1200, 500, 0 };
 	tnl::Vector3 left_shoot_bullet_pos_ = {-20, 0, 0};
 	tnl::Vector3 right_shoot_bullet_pos_ = {20, 0, 0};
 	tnl::Vector3 dir_ = {1, 0, 0};
