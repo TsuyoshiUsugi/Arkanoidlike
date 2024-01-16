@@ -11,7 +11,7 @@ private:
 	Player* player_2_;
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
-	map_manager* map_manager_;
+	std::shared_ptr<map_manager> map_manager_;
 
 public :
 	ScenePlay();

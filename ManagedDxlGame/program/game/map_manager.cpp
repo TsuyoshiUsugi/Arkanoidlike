@@ -22,12 +22,12 @@ void map_manager::load_map()
 
     
     //テスト用のマップ生成(5*5)
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < hori_block_num_; ++i) //横
     {
-        for (int k = 0; k < 5; k++)
+        for (int k = 0; k < vert_block_num_; k++) //縦
         {
             auto hdl = LoadGraph(block_graphic_paths_[0].c_str());
-            auto pos = std::make_shared<tnl::Vector3>(0 + vert_block_space_ * i, 0 + hori_block_space_ * k, 0);
+            auto pos = tnl::Vector3(block_start_pos_.x + hori_block_space_ * i, 0 + vert_block_space_ * k, 0);
             auto block = std::make_shared<in_game_block>(hdl, pos);
             
             blocks_.emplace_back(block);
