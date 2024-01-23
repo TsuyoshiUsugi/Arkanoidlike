@@ -23,9 +23,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ManagedDxlGame.cpp">
-      <Filter>program</Filter>
-    </ClCompile>
     <ClCompile Include="program\library\tnl_font_texture.cpp">
       <Filter>program\[000] library</Filter>
     </ClCompile>
@@ -155,6 +152,18 @@
     <ClCompile Include="program\game\scene_play.cpp">
       <Filter>program\[003] game</Filter>
     </ClCompile>
+    <ClCompile Include="program\game\in_game_block.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="ManagedDxlGame.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\game\map_manager.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\game\scene_result.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ManagedDxlGame.rc">
@@ -279,6 +288,18 @@
       <Filter>program\[003] game</Filter>
     </ClInclude>
     <ClInclude Include="program\game\scene_play.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\in_game_block.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\map_manager.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\scene_result.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\item_block.h">
       <Filter>program\[003] game</Filter>
     </ClInclude>
   </ItemGroup>

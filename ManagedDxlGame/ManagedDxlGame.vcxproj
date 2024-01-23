@@ -213,6 +213,7 @@
     <ClInclude Include="program\game\in_game_block.h" />
     <ClInclude Include="program\game\game_mamanger.h" />
     <ClInclude Include="program\game\gm_main.h" />
+    <ClInclude Include="program\game\item_block.h" />
     <ClInclude Include="program\game\map_manager.h" />
     <ClInclude Include="program\game\object.h" />
     <ClInclude Include="program\game\player.h" />

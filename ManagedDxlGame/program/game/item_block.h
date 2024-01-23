@@ -17,6 +17,6 @@ public:
     }
 
     void update(float delta_time) override;
-    void draw();
+    void draw() override;
     void Hit();
 };
