@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../dxlib_ext/dxlib_ext.h"
+#include "player.h"
 
 //XY座標となんの画像を表示するかの情報を持つブロッククラス
 class in_game_block
@@ -17,5 +18,5 @@ public:
 
 public:
     void draw();
-    void Hit();
+    void Hit(PlayerType player_type);
 };

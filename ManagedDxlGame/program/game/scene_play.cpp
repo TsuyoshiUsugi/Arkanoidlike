@@ -46,6 +46,8 @@ void ScenePlay::check_hit() {
 			if (tnl::IsIntersectPointRect(bullet_pos.x, bullet_pos.y, block_pos.x + block_size.x / 2, block_pos.y + block_size.y / 2, block_size.x, block_size.y))
 			{
 				//当たり判定を行う
+				PlayerType hit_player = PlayerType::Player1;
+				(*block_it)->Hit(hit_player);
 				map_manager_->blocks_.erase(block_it);
 				(*bullet_it)->is_alive_ = false;
 				break;
@@ -71,6 +73,8 @@ void ScenePlay::check_hit() {
 			if (tnl::IsIntersectPointRect(bullet_pos.x, bullet_pos.y, block_pos.x + block_size.x / 2, block_pos.y + block_size.y / 2, block_size.x, block_size.y))
 			{
 				//当たり判定を行う
+				PlayerType hit_player = PlayerType::Player2;
+				(*block_it)->Hit(hit_player);
 				map_manager_->blocks_.erase(block_it);
 				(*bullet_it)->is_alive_ = false;
 				break;
