@@ -25,14 +25,11 @@ Player::Player(PlayerType playerType) {
 //弾の発射処理
 void Player::ShootBullet()
 {
-	tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
+	
 	if (playerType_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
-			
-			/*ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
-				GameManager::GetInstance()->process_scene_ ) ;
-			sc_play->spawn_bullet( spawn_pos , dir_, true);*/
+			tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
 				shoot_methods_[i]->shoot(spawn_pos, playerType_);
@@ -42,11 +39,7 @@ void Player::ShootBullet()
 	else
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RSHIFT)) {
-			/*tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
-			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
-				GameManager::GetInstance()->process_scene_ ) ;
-		
-			sc_play->spawn_bullet( spawn_pos, dir_, false);*/
+			tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
 				shoot_methods_[i]->shoot(spawn_pos, playerType_);
@@ -81,4 +74,13 @@ void Player::update(float delta_time) {
 // プレイヤ描画
 void Player::draw() {
 	DrawBoxEx(pos_, width_, hight_, false);
+}
+
+/// <summary>
+/// プレイヤーに弾の発射方法を追加する
+/// </summary>
+/// <param name="shoot_method"></param>
+void Player::AddShootMethod(ShootMethodBase* shoot_method)
+{
+	shoot_methods_.push_back(shoot_method);
 }

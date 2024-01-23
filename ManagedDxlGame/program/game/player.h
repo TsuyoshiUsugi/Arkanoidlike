@@ -24,6 +24,7 @@ public:
 	void MoveHorizontal();
 	void update(float delta_time) override ;
 	void draw() override ;
+	void AddShootMethod(ShootMethodBase* shoot_method);
 };
 
 
