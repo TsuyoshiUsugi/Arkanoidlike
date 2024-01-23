@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BounceBullet.cpp" />
     <ClCompile Include="ManagedDxlGame.cpp" />
     <ClCompile Include="program\dxlib_ext\create_mesh\dxlib_ext_mesh_barrel.cpp" />
     <ClCompile Include="program\dxlib_ext\create_mesh\dxlib_ext_mesh_box.cpp" />
@@ -170,7 +171,8 @@
     <ClCompile Include="program\dxlib_ext\dxlib_ext_texture.cpp" />
     <ClCompile Include="program\dxlib_ext\OBJLoader.cpp" />
     <ClCompile Include="program\game\bounce_shoot.cpp" />
-    <ClCompile Include="program\game\bullet.cpp" />
+    <ClCompile Include="program\game\BulletBase.cpp" />
+    <ClCompile Include="program\game\NormalBullet.cpp" />
     <ClCompile Include="program\game\in_game_block.cpp" />
     <ClCompile Include="program\game\game_managercpp.cpp" />
     <ClCompile Include="program\game\gm_main.cpp" />
@@ -213,8 +215,10 @@
     <ClInclude Include="program\dxlib_ext\dxlib_ext_render_param.h" />
     <ClInclude Include="program\dxlib_ext\dxlib_ext_texture.h" />
     <ClInclude Include="program\dxlib_ext\OBJLoader.h" />
+    <ClInclude Include="program\game\BounceBullet.h" />
     <ClInclude Include="program\game\bounce_shoot.h" />
-    <ClInclude Include="program\game\bullet.h" />
+    <ClInclude Include="program\game\NormalBullet.h" />
+    <ClInclude Include="program\game\BulletBase.h" />
     <ClInclude Include="program\game\in_game_block.h" />
     <ClInclude Include="program\game\game_mamanger.h" />
     <ClInclude Include="program\game\gm_main.h" />

@@ -1,6 +1,5 @@
 #include "game_mamanger.h"
 #include "player.h"
-#include "bullet.h"
 #include "scene_title.h"
 #include "scene_play.h"
 

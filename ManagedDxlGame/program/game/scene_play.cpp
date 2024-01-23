@@ -1,7 +1,8 @@
 #include "../dxlib_ext/dxlib_ext.h"
 #include "scene_play.h"
 #include "player.h"
-#include "bullet.h"
+#include "BulletBase.h"
+#include "NormalBullet.h"
 #include "game_mamanger.h"
 #include "in_game_block.h"
 #include "scene_result.h"
@@ -85,7 +86,7 @@ void ScenePlay::check_hit() {
 
 //弾丸を生成する
 void ScenePlay::spawn_bullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
-	auto bullet = new Bullet( spawn_pos, dir);
+	auto bullet = new NormalBullet( spawn_pos, dir);
 	if (isP1Shot)
 	{
 		p1_bullet_list_.emplace_back( bullet );

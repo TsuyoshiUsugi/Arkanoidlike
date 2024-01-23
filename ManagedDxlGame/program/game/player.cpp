@@ -29,10 +29,6 @@ void Player::ShootBullet()
 	if (playerType_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
-			
-			/*ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
-				GameManager::GetInstance()->process_scene_ ) ;
-			sc_play->spawn_bullet( spawn_pos , dir_, true);*/
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
 				shoot_methods_[i]->shoot(spawn_pos, playerType_);
@@ -42,11 +38,6 @@ void Player::ShootBullet()
 	else
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RSHIFT)) {
-			/*tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
-			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
-				GameManager::GetInstance()->process_scene_ ) ;
-		
-			sc_play->spawn_bullet( spawn_pos, dir_, false);*/
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
 				shoot_methods_[i]->shoot(spawn_pos, playerType_);

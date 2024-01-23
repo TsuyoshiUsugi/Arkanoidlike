@@ -11,9 +11,9 @@ void BounceShoot::shoot(tnl::Vector3 pos, PlayerType player_type)
 
 	// ’e‚ÌˆÚ“®•ûŒü‚ðƒvƒŒƒCƒ„[‚ÌŒü‚¢‚Ä‚¢‚é•ûŒü‚É‚·‚é
 	if (player_type == PlayerType::Player1)
-		move_dir_ = tnl::Vector3{1, -1, 1};
+		move_dir_ = tnl::Vector3{ 1, -1, 1 };
 	else if (player_type == PlayerType::Player2)
-		move_dir_ = tnl::Vector3{-1, 1, 1};
+		move_dir_ = tnl::Vector3{ -1, 1, 1 };
 
 	// ’e‚ð¶¬‚·‚é
 	sc_play->spawn_bullet(pos, move_dir_, true);
