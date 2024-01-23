@@ -16,7 +16,7 @@ ScenePlay::ScenePlay() {
 	map_manager_->load_map();
 }
 
-void ScenePlay::callResult(PlayerType winner)
+void ScenePlay::CallResult(PlayerType winner)
 {
 	GameManager* mgr = GameManager::GetInstance();
 	mgr->setWinner(winner);
@@ -80,7 +80,7 @@ void ScenePlay::check_hit() {
 		bullet_it++;
 	}
 
-	if (winner != PlayerType::None) callResult(winner);
+	if (winner != PlayerType::None) CallResult(winner);
 }
 
 //弾丸を生成する
@@ -141,7 +141,5 @@ void ScenePlay::drawBullet()
 void ScenePlay::draw() {
 	SceneBase::draw();
 	drawBullet();
-
-	DrawStringEx(10, 10, -1, "scene play");
 }
 

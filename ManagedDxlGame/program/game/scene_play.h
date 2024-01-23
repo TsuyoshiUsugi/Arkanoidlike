@@ -15,7 +15,7 @@ private:
 
 public :
 	ScenePlay();
-	void callResult(PlayerType winner);
+	void CallResult(PlayerType winner);
 	void LoadMap();
 
 	void spawn_bullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);

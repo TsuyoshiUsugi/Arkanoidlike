@@ -9,4 +9,5 @@ void in_game_block::draw()
 void in_game_block::Hit()
 {
     //ブロックが当たった時の処理
+
 }

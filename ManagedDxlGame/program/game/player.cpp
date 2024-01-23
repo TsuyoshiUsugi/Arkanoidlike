@@ -1,28 +1,56 @@
 #include "game_mamanger.h"
 #include "player.h"
 #include "scene_play.h"
+#include "normal_shoot.h"
+#include "bounce_shoot.h"
+
+Player::Player(PlayerType playerType) {
+	playerType_ = playerType;
+	width_ = 30;
+	hight_ = 50;
+
+	if (playerType_ == PlayerType::Player1)
+		pos_ = left_player_start_vector3_pos_;
+	else
+	{
+		pos_ = right_player_start_vector3_pos_;
+		dir_ *= -1;	//îΩëŒÇ…Ç∑ÇÈ
+	}
+
+	shoot_methods_.push_back(new NormalShoot());
+	shoot_methods_.push_back(new BounceShoot());
+}
+
 
 //íeÇÃî≠éÀèàóù
 void Player::ShootBullet()
 {
+	tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
 	if (playerType_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
-			tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
-			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
+			
+			/*ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
 				GameManager::GetInstance()->process_scene_ ) ;
-			const tnl::Vector3 dir = {1 ,0 , 0};
-			sc_play->spawn_bullet( spawn_pos , dir_, true);
+			sc_play->spawn_bullet( spawn_pos , dir_, true);*/
+			for (size_t i = 0; i < shoot_methods_.size(); i++)
+			{
+				shoot_methods_[i]->shoot(spawn_pos, playerType_);
+			}
 		}
 	}
 	else
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RSHIFT)) {
-			tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
+			/*tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
 			ScenePlay* sc_play = dynamic_cast<ScenePlay*>( 
 				GameManager::GetInstance()->process_scene_ ) ;
 		
-			sc_play->spawn_bullet( spawn_pos, dir_, false);
+			sc_play->spawn_bullet( spawn_pos, dir_, false);*/
+			for (size_t i = 0; i < shoot_methods_.size(); i++)
+			{
+				shoot_methods_[i]->shoot(spawn_pos, playerType_);
+			}
 		}
 	}
 }

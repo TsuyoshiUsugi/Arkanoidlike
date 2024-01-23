@@ -10,6 +10,8 @@ public:
     int ghl_;    //グラフィックハンドル
     tnl::Vector3 pos_;
     tnl::Vector2i size_ = { 30, 50 }; //サイズは30*50で固定
+    tnl::Vector3 move_dir_ = { 1, 0, 0 };
+
     item_block(const int ghl, const tnl::Vector3 pos)
     {
         pos_ = pos;
