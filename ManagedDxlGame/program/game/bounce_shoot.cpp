@@ -16,5 +16,5 @@ void BounceShoot::shoot(tnl::Vector3 pos, PlayerType player_type)
 		move_dir_ = tnl::Vector3{-1, 1, 1};
 
 	// ’e‚ð¶¬‚·‚é
-	sc_play->spawn_bullet(pos, move_dir_, true);
+	sc_play->SpawnBullet(pos, move_dir_, true);
 }

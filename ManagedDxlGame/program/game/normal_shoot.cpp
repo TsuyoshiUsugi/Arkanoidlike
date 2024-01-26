@@ -13,10 +13,10 @@ void NormalShoot::shoot(tnl::Vector3 spawn_pos, PlayerType player_type)
 
 	if (player_type == PlayerType::Player1)
 	{
-		sc_play->spawn_bullet(spawn_pos, dir, true);
+		sc_play->SpawnBullet(spawn_pos, dir, true);
 	}
 	else
 	{
-		sc_play->spawn_bullet(spawn_pos, dir *= -1, false);
+		sc_play->SpawnBullet(spawn_pos, dir *= -1, false);
 	}
 }

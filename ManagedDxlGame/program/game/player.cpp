@@ -25,7 +25,6 @@ Player::Player(PlayerType playerType) {
 //弾の発射処理
 void Player::ShootBullet()
 {
-	
 	if (playerType_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
@@ -64,7 +63,6 @@ void Player::MoveHorizontal()
 
 // プレイヤアップデート
 void Player::update(float delta_time) {
-
 	// 左右キー移動
 	MoveHorizontal();
 	// 弾丸発射
