@@ -15,6 +15,7 @@ void SceneTitle::update( float delta_time ) {
 
 void SceneTitle::draw() {
 	SceneBase::draw();
-	DrawStringEx(10, 10, -1, "scene title");
+	SetFontSize(100);
+	DrawStringEx(show_result_pos.x, show_result_pos.y, -1, "ARKANOID BATTLE");
 }
 

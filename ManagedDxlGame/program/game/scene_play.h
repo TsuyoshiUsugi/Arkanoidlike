@@ -12,15 +12,14 @@ private:
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
 	std::shared_ptr<map_manager> map_manager_;
-
 public :
 	ScenePlay();
-	void callResult(PlayerType winner);
-	void LoadMap();
-
-	void spawn_bullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
-	void updateBullet(float delta_time);
-	void check_hit();
+	void CallResult(PlayerType winner);
+	//void LoadMap();
+	void SpawnItemBlock(int ghl, tnl::Vector3 pos, tnl::Vector3 dir);
+	void SpawnBullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
+	void UpdateBullet(float delta_time);
+	void CheckHit();
 
 	void update(float delta_time) override ;
 	void drawBullet();

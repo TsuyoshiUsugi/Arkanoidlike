@@ -5,18 +5,18 @@
 #include "game_mamanger.h"
 #include "in_game_block.h"
 #include "scene_result.h"
+#include "item_block.h"
 
 ScenePlay::ScenePlay() {
 	player_1_ = new Player(PlayerType::Player1);
 	objects_.emplace_back( player_1_ );
 	player_2_ = new Player(PlayerType::Player2);
 	objects_.emplace_back( player_2_ );
-
 	map_manager_ = std::make_shared<map_manager>();
 	map_manager_->load_map();
 }
 
-void ScenePlay::callResult(PlayerType winner)
+void ScenePlay::CallResult(PlayerType winner)
 {
 	GameManager* mgr = GameManager::GetInstance();
 	mgr->setWinner(winner);
@@ -25,7 +25,7 @@ void ScenePlay::callResult(PlayerType winner)
 
 //各プレイヤーと弾の当たり判定を行う
 //弾の当たり判定の後、弾と各ブロックの当たり判定を行う
-void ScenePlay::check_hit() {
+void ScenePlay::CheckHit() {
 	// オブジェクトのアップデート処理
 	auto bullet_it = p1_bullet_list_.begin();
 	PlayerType winner = PlayerType::None;
@@ -46,6 +46,8 @@ void ScenePlay::check_hit() {
 			if (tnl::IsIntersectPointRect(bullet_pos.x, bullet_pos.y, block_pos.x + block_size.x / 2, block_pos.y + block_size.y / 2, block_size.x, block_size.y))
 			{
 				//当たり判定を行う
+				PlayerType hit_player = PlayerType::Player1;
+				(*block_it)->Hit(hit_player);
 				map_manager_->blocks_.erase(block_it);
 				(*bullet_it)->is_alive_ = false;
 				break;
@@ -71,6 +73,8 @@ void ScenePlay::check_hit() {
 			if (tnl::IsIntersectPointRect(bullet_pos.x, bullet_pos.y, block_pos.x + block_size.x / 2, block_pos.y + block_size.y / 2, block_size.x, block_size.y))
 			{
 				//当たり判定を行う
+				PlayerType hit_player = PlayerType::Player2;
+				(*block_it)->Hit(hit_player);
 				map_manager_->blocks_.erase(block_it);
 				(*bullet_it)->is_alive_ = false;
 				break;
@@ -80,11 +84,18 @@ void ScenePlay::check_hit() {
 		bullet_it++;
 	}
 
-	if (winner != PlayerType::None) callResult(winner);
+	if (winner != PlayerType::None) CallResult(winner);
+}
+
+void ScenePlay::SpawnItemBlock(int ghl, tnl::Vector3 pos, tnl::Vector3 dir)
+{
+	//ブロックを生成する
+	auto block = new item_block(ghl, pos, dir);
+	objects_.emplace_back(block);
 }
 
 //弾丸を生成する
-void ScenePlay::spawn_bullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
+void ScenePlay::SpawnBullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
 	auto bullet = new Bullet( spawn_pos, dir);
 	if (isP1Shot)
 	{
@@ -96,7 +107,7 @@ void ScenePlay::spawn_bullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool i
 	}
 }
 
-void ScenePlay::updateBullet(float delta_time)
+void ScenePlay::UpdateBullet(float delta_time)
 {
 	auto it = p1_bullet_list_.begin();
 	while (it != p1_bullet_list_.end()) {
@@ -123,8 +134,10 @@ void ScenePlay::updateBullet(float delta_time)
 
 void ScenePlay::update(float delta_time) {
 	SceneBase::update(delta_time);
-	updateBullet(delta_time);
-	check_hit();
+	UpdateBullet(delta_time);
+	CheckHit();
+	player_1_->update(delta_time);
+	player_2_->update(delta_time);
 }
 
 void ScenePlay::drawBullet()
@@ -141,7 +154,7 @@ void ScenePlay::drawBullet()
 void ScenePlay::draw() {
 	SceneBase::draw();
 	drawBullet();
-
-	DrawStringEx(10, 10, -1, "scene play");
+	/*player_1_->draw();
+	player_2_->draw();*/
 }
 
