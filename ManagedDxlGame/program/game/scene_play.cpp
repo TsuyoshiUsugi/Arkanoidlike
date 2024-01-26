@@ -136,6 +136,8 @@ void ScenePlay::update(float delta_time) {
 	SceneBase::update(delta_time);
 	UpdateBullet(delta_time);
 	CheckHit();
+	player_1_->update(delta_time);
+	player_2_->update(delta_time);
 }
 
 void ScenePlay::drawBullet()
@@ -152,5 +154,7 @@ void ScenePlay::drawBullet()
 void ScenePlay::draw() {
 	SceneBase::draw();
 	drawBullet();
+	/*player_1_->draw();
+	player_2_->draw();*/
 }
 

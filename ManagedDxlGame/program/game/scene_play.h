@@ -4,7 +4,6 @@
 #include "player.h"
 #include "../dxlib_ext/dxlib_ext.h"
 #include "scene_base.h"
-#include "object.h"
 
 class ScenePlay : public SceneBase {
 private:
@@ -13,8 +12,6 @@ private:
 	std::list<Bullet*> p1_bullet_list_;
 	std::list<Bullet*> p2_bullet_list_;
 	std::shared_ptr<map_manager> map_manager_;
-	std::list<Object*> objects_;
-
 public :
 	ScenePlay();
 	void CallResult(PlayerType winner);
