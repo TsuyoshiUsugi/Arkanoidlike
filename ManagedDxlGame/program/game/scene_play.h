@@ -16,7 +16,7 @@ public :
 	ScenePlay();
 	void CallResult(PlayerType winner);
 	//void LoadMap();
-	void SpawnItemBlock(int ghl, tnl::Vector3 pos, tnl::Vector3 dir);
+	void SpawnItemBlock(int ghl, tnl::Vector3 pos, PlayerType player_type);
 	void SpawnBullet( tnl::Vector3& spawn_pos , tnl::Vector3& dir , bool isP1Shot);
 	void UpdateBullet(float delta_time);
 	void CheckHit();

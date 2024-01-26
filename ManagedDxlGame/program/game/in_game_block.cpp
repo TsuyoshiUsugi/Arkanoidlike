@@ -14,14 +14,5 @@ void in_game_block::Hit(PlayerType player_type)
 	ScenePlay* sc_play = dynamic_cast<ScenePlay*>(
 		GameManager::GetInstance()->process_scene_);
 	tnl::Vector3 dir = tnl::Vector3();
-
-	if (player_type == PlayerType::Player1)
-	{
-		dir	= tnl::Vector3(-1, 0, 0);
-	}
-	else if (player_type == PlayerType::Player2)
-	{
-		dir = tnl::Vector3(1, 0, 0);
-	}
-    sc_play->SpawnItemBlock(0, pos_, dir);
+    sc_play->SpawnItemBlock(0, pos_, player_type);
 }

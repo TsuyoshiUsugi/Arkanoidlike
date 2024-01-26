@@ -87,22 +87,30 @@ void ScenePlay::CheckHit() {
 	if (winner != PlayerType::None) CallResult(winner);
 }
 
-void ScenePlay::SpawnItemBlock(int ghl, tnl::Vector3 pos, tnl::Vector3 dir)
+void ScenePlay::SpawnItemBlock(int ghl, tnl::Vector3 pos, PlayerType player_type)
 {
+	auto dir = tnl::Vector3(1, 0, 0);
 	//ブロックを生成する
-	auto block = new item_block(ghl, pos, dir);
+	if (player_type == PlayerType::Player1)
+	{
+		dir *= -1;
+	}
+
+	auto block = new ItemBlock(ghl, pos, dir);
 	objects_.emplace_back(block);
 }
 
 //弾丸を生成する
 void ScenePlay::SpawnBullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool isP1Shot) {
-	auto bullet = new Bullet( spawn_pos, dir);
+	
 	if (isP1Shot)
 	{
+		auto bullet = new Bullet(spawn_pos, dir, PlayerType::Player1);
 		p1_bullet_list_.emplace_back( bullet );
 	}
 	else
 	{
+		auto bullet = new Bullet(spawn_pos, dir, PlayerType::Player2);
 		p2_bullet_list_.emplace_back( bullet );
 	}
 }
@@ -136,8 +144,6 @@ void ScenePlay::update(float delta_time) {
 	SceneBase::update(delta_time);
 	UpdateBullet(delta_time);
 	CheckHit();
-	player_1_->update(delta_time);
-	player_2_->update(delta_time);
 }
 
 void ScenePlay::drawBullet()
@@ -154,7 +160,5 @@ void ScenePlay::drawBullet()
 void ScenePlay::draw() {
 	SceneBase::draw();
 	drawBullet();
-	/*player_1_->draw();
-	player_2_->draw();*/
 }
 

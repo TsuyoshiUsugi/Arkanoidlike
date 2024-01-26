@@ -1,10 +1,12 @@
 #include "bullet.h"
+#include "player.h"
 
 // バレットコンストラクタ
 // arg1... スポーン座標
-Bullet::Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir) {
+Bullet::Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir, PlayerType shoot_playerType) {
 	pos_ = spawn_pos;
 	dir_ = dir;
+	player_type_ = shoot_playerType;
 }
 
 // バレットアップデート
