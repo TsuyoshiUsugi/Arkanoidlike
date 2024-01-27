@@ -8,6 +8,7 @@ GameManager::GameManager() {
 
 	process_scene_ = new SceneTitle() ;
 	setWinner(PlayerType::None);
+	SetWindowSize(1620, 780);
 }
 
 GameManager::~GameManager() {

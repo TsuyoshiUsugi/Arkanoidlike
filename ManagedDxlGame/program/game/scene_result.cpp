@@ -27,11 +27,11 @@ void scene_result::draw() {
     SceneBase::draw();
     if (mgr->getWinner() == PlayerType::Player1)
     {
-        DrawStringEx(show_result_pos.x, show_result_pos.y, -1, "Player1 win");
+        DrawStringEx(show_title_pos.x, show_title_pos.y, -1, "Player1 win");
     }
     else
     {
-        DrawStringEx(show_result_pos.x, show_result_pos.y, -1, "Player2 win");
+        DrawStringEx(show_title_pos.x, show_title_pos.y, -1, "Player2 win");
     }
 }
 

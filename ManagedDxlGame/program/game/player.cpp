@@ -18,7 +18,7 @@ Player::Player(PlayerType playerType) {
 	}
 
 	shoot_methods_.push_back(new NormalShoot());
-	shoot_methods_.push_back(new BounceShoot());
+	//shoot_methods_.push_back(new BounceShoot());
 }
 
 
@@ -58,6 +58,15 @@ void Player::MoveHorizontal()
 	{
 		if (tnl::Input::IsKeyDown(eKeys::KB_UP)) pos_.y -= 5.0f;
 		if (tnl::Input::IsKeyDown(eKeys::KB_DOWN)) pos_.y += 5.0f;
+	}
+
+	if (pos_.y < 0 + hight_ / 2)
+	{
+		pos_.y = 0 + hight_ / 2;
+	}
+	else if (pos_.y > 780 - hight_ * 2)
+	{
+		pos_.y = 780 - hight_ * 2;
 	}
 }
 
