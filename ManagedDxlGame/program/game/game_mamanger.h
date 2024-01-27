@@ -10,23 +10,22 @@ class SceneBase;
 class GameManager {
 private:
 	PlayerType winner_ = PlayerType::None;
-	GameManager();
-	~GameManager();
 public:
+	GameManager();
 
-	static GameManager* GetInstance();
+	static std::shared_ptr<GameManager> GetInstance();
 	static void Destroy();
 
-	void changeScene( SceneBase* scene );
-	void setWinner(PlayerType winner);
-	PlayerType getWinner();
+	void ChangeScene(std::shared_ptr<SceneBase> scene);
+	void SetWinner(PlayerType winner);
+	PlayerType GetWinner();
 
-	void update(float delta_time);
-	void draw();
+	void Update(float delta_time);
+	void Draw();
 
 
 	std::list<Object*> objects_;
-	SceneBase* process_scene_ = nullptr;
+	std::shared_ptr<SceneBase> process_scene_ = nullptr;
 };
 
 

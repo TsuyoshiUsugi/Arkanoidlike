@@ -17,6 +17,6 @@ public:
     }
 
 public:
-    void draw();
+    void Draw();
     void Hit(PlayerType player_type);
 };

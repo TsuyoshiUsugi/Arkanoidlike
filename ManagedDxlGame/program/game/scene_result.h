@@ -2,13 +2,13 @@
 #include "game_mamanger.h"
 #include "scene_base.h"
 
-class scene_result : public SceneBase
+class SceneResult : public SceneBase
 {
 private:
-    GameManager* mgr;
+    std::shared_ptr<GameManager> mgr_;
     tnl::Vector3 show_title_pos = {500, 350, 0};
 public :
-    scene_result();
-    void update(float delta_time) override;
-    void draw() override;
+    SceneResult();
+    void Update(float delta_time) override;
+    void Draw() override;
 };

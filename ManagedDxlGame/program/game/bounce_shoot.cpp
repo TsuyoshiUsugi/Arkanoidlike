@@ -6,20 +6,21 @@
 
 BounceShoot::BounceShoot(tnl::Vector3 dir)
 {
-
+	move_dir_ = dir;
 }
 
-void BounceShoot::shoot(tnl::Vector3 pos, PlayerType player_type)
+void BounceShoot::Shoot(tnl::Vector3 pos, PlayerType player_type)
 {
-	ScenePlay* sc_play = dynamic_cast<ScenePlay*>(
+	std::shared_ptr<ScenePlay> sc_play = std::dynamic_pointer_cast<ScenePlay>(
 		GameManager::GetInstance()->process_scene_);
 
 	// ’e‚ÌˆÚ“®•ûŒü‚ðƒvƒŒƒCƒ„[‚ÌŒü‚¢‚Ä‚¢‚é•ûŒü‚É‚·‚é
 	if (player_type == PlayerType::Player1)
-		move_dir_ = tnl::Vector3{1, -1, 1};
+	{
+		sc_play->SpawnBullet(pos, move_dir_, true);
+	}
 	else if (player_type == PlayerType::Player2)
-		move_dir_ = tnl::Vector3{-1, 1, 1};
-
-	// ’e‚ð¶¬‚·‚é
-	sc_play->SpawnBullet(pos, move_dir_, true);
+	{
+		sc_play->SpawnBullet(pos, move_dir_, false);
+	}
 }

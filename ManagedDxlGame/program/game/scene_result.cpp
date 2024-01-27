@@ -7,25 +7,25 @@
 
 class GameManager;
 
-scene_result::scene_result()
+SceneResult::SceneResult()
 {
-    mgr = GameManager::GetInstance();
+    mgr_ = GameManager::GetInstance();
 }
 
 
-void scene_result::update( float delta_time ) {
-    SceneBase::update(delta_time);
+void SceneResult::Update( float delta_time ) {
+    SceneBase::Update(delta_time);
 
     if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RETURN)) {
-        GameManager* mgr = GameManager::GetInstance();
-        mgr->changeScene( new SceneTitle() );
+        std::shared_ptr<GameManager> mgr_ = GameManager::GetInstance();
+        mgr_->ChangeScene( std::make_shared<SceneTitle>() );
     }
 
 }
 
-void scene_result::draw() {
-    SceneBase::draw();
-    if (mgr->getWinner() == PlayerType::Player1)
+void SceneResult::Draw() {
+    SceneBase::Draw();
+    if (mgr_->GetWinner() == PlayerType::Player1)
     {
         DrawStringEx(show_title_pos.x, show_title_pos.y, -1, "Player1 win");
     }

@@ -30,7 +30,7 @@ namespace tnl {
 	}
 
 	//-------------------------------------------------------------------------------------------------------
-	void SeekUnit::update(const double delta_time) {
+	void SeekUnit::Update(const double delta_time) {
 		if (!is_playing_) return;
 		uint32_t frame = getSeekFrame(eFrameType::CURRENT);
 		seekProcess(static_cast<float>(delta_time));

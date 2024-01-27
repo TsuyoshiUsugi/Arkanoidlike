@@ -4,12 +4,12 @@
 #include "normal_shoot.h"
 #include "bounce_shoot.h"
 
-Player::Player(PlayerType playerType) {
-	playerType_ = playerType;
+Player::Player(PlayerType player_type) {
+	player_type_ = player_type;
 	width_ = 30;
 	hight_ = 50;
 
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 		pos_ = left_player_start_vector3_pos_;
 	else
 	{
@@ -18,20 +18,19 @@ Player::Player(PlayerType playerType) {
 	}
 
 	shoot_methods_.push_back(new NormalShoot());
-	//shoot_methods_.push_back(new BounceShoot());
 }
 
 
 //弾の発射処理
 void Player::ShootBullet()
 {
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
 			tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
-				shoot_methods_[i]->shoot(spawn_pos, playerType_);
+				shoot_methods_[i]->Shoot(spawn_pos, player_type_);
 			}
 		}
 	}
@@ -41,7 +40,7 @@ void Player::ShootBullet()
 			tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
-				shoot_methods_[i]->shoot(spawn_pos, playerType_);
+				shoot_methods_[i]->Shoot(spawn_pos, player_type_);
 			}
 		}
 	}
@@ -49,7 +48,7 @@ void Player::ShootBullet()
 
 void Player::MoveHorizontal()
 {
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDown(eKeys::KB_W)) pos_.y -= 5.0f;
 		if (tnl::Input::IsKeyDown(eKeys::KB_S)) pos_.y += 5.0f;
@@ -71,7 +70,7 @@ void Player::MoveHorizontal()
 }
 
 // プレイヤアップデート
-void Player::update(float delta_time) {
+void Player::Update(float delta_time) {
 	// 左右キー移動
 	MoveHorizontal();
 	// 弾丸発射
@@ -79,7 +78,7 @@ void Player::update(float delta_time) {
 }
 
 // プレイヤ描画
-void Player::draw() {
+void Player::Draw() {
 	DrawBoxEx(pos_, width_, hight_, false);
 }
 

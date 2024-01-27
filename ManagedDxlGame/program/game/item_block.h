@@ -20,6 +20,6 @@ public:
         move_dir_ = move_dir;
     }
 
-    void update(float delta_time) override;
-    void draw() override;
+    void Update(float delta_time) override;
+    void Draw() override;
 };

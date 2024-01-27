@@ -4,11 +4,10 @@
 #include "player.h"
 #include "game_mamanger.h"
 
-void NormalShoot::shoot(tnl::Vector3 spawn_pos, PlayerType player_type)
+void NormalShoot::Shoot(tnl::Vector3 spawn_pos, PlayerType player_type)
 {
 	//’Êí‚Ì’e‚ğ”­Ë‚·‚éˆ—
-	ScenePlay* sc_play = dynamic_cast<ScenePlay*>(
-		GameManager::GetInstance()->process_scene_);
+	std::shared_ptr<ScenePlay> sc_play = std::dynamic_pointer_cast<ScenePlay>(GameManager::GetInstance()->process_scene_);
 	tnl::Vector3 dir = { 1 ,0 , 0 };
 
 	if (player_type == PlayerType::Player1)
@@ -20,3 +19,4 @@ void NormalShoot::shoot(tnl::Vector3 spawn_pos, PlayerType player_type)
 		sc_play->SpawnBullet(spawn_pos, dir *= -1, false);
 	}
 }
+

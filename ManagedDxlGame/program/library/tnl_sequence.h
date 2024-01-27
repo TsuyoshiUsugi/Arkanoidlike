@@ -245,7 +245,7 @@ namespace tnl {
 				, function_(p_func)
 				, p_function_(p_func)
 			{}
-			bool update(const float delta_time) {
+			bool Update(const float delta_time) {
 				sum_time_ += delta_time;
 				if (time_to_trigger_ > sum_time_) return false;
 				if (!is_repeating_) {
@@ -310,11 +310,11 @@ namespace tnl {
 		//---------------------------------------------------------------------------------------------------------
 		// シーケンスのアップデート ( 毎フレーム呼び出せばOK )
 		// arg1... フレーム間の経過時間( 秒のデルタタイム )
-		inline bool update(const float deltatime) {
+		inline bool Update(const float deltatime) {
 
 			auto it = invokes_.begin();
 			while (it != invokes_.end()) {
-				bool f = (*it)->update(deltatime);
+				bool f = (*it)->Update(deltatime);
 				if (!f) {
 					it++;
 					continue;

@@ -1,14 +1,15 @@
 #pragma once
 #include <list>
+#include <memory>
 
 class Object ;
 
 class SceneBase {
 public :
 	virtual ~SceneBase(){}
-	virtual void update(float delta_time);
-	virtual void draw();
+	virtual void Update(float delta_time);
+	virtual void Draw();
 
-	std::list<Object*> objects_ ;
+	std::list<std::shared_ptr<Object>> objects_ ;
 };
 

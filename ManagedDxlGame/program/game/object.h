@@ -13,6 +13,6 @@ public:
 	float width_;
 	float hight_;
 
-	virtual void update(float delta_time) {} ;
-	virtual void draw() {} ;
+	virtual void Update(float delta_time) {} ;
+	virtual void Draw() {} ;
 };

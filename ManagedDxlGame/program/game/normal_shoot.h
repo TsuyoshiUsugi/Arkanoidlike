@@ -8,6 +8,6 @@
 class NormalShoot : public ShootMethodBase
 {
 public:
-	void shoot(tnl::Vector3 pos, PlayerType player_type) override;
+	void Shoot(tnl::Vector3 pos, PlayerType player_type) override;
 };
 

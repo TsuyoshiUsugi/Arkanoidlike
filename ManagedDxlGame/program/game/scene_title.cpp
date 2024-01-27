@@ -13,12 +13,12 @@ SceneTitle::SceneTitle()
     ghl_ = LoadGraph("graphics/Title.png");
 }
 
-void SceneTitle::update( float delta_time ) {
-	SceneBase::update(delta_time);
+void SceneTitle::Update( float delta_time ) {
+	SceneBase::Update(delta_time);
 
 	if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RETURN)) {
-		GameManager* mgr = GameManager::GetInstance();
-		mgr->changeScene( new ScenePlay() );
+		std::shared_ptr<GameManager> mgr_ = GameManager::GetInstance();
+		mgr_->ChangeScene( std::make_shared<ScenePlay>() );
 	}
 
     current_time_ += delta_time;
@@ -27,8 +27,8 @@ void SceneTitle::update( float delta_time ) {
 	}
 }
 
-void SceneTitle::draw() {
-    SceneBase::draw();
+void SceneTitle::Draw() {
+    SceneBase::Draw();
 
     // デフォルトの色（白）に戻す
     SetDrawBright(255, 255, 255); // ここで色を白に戻す
