@@ -38,7 +38,8 @@ void ScenePlay::CheckHit() {
 		{
 			//当たり判定を行う
 			winner = PlayerType::Player1;
-			break;
+			CallResult(winner);
+			return;
 		}
 		auto block_it = map_manager_->blocks_.begin();
 		while (block_it != map_manager_->blocks_.end())
@@ -65,7 +66,8 @@ void ScenePlay::CheckHit() {
 		auto bullet_pos = (*bullet_it)->pos_;	//弾丸の位置
 		if (tnl::IsIntersectPointRect(bullet_pos.x, bullet_pos.y, player_1_->pos_.x, player_1_->pos_.y, player_1_->width_, player_1_->hight_)) {	//当たり判定を行う
 			winner = PlayerType::Player2;
-			break;
+			CallResult(winner);
+			return;
 		}
 		auto block_it = map_manager_->blocks_.begin();
 		while (block_it != map_manager_->blocks_.end())
@@ -86,11 +88,9 @@ void ScenePlay::CheckHit() {
 		bullet_it++;
 	}
 
-	if (winner != PlayerType::None) CallResult(winner);
-
 	auto obj_it = objects_.begin();
 
-	while (obj_it != objects_.end()) {
+	while (obj_it != objects_.end()) {	//アイテムブロックの当たり判定
 		std::shared_ptr<ItemBlock> item_block_ptr = std::dynamic_pointer_cast<ItemBlock>(*obj_it);
 		if (item_block_ptr) {
 			if (tnl::IsIntersectRect(item_block_ptr->pos_, item_block_ptr->size_.x, item_block_ptr->size_.y,
@@ -144,6 +144,7 @@ void ScenePlay::SpawnBullet( tnl::Vector3& spawn_pos, tnl::Vector3& dir, bool is
 void ScenePlay::UpdateBullet(float delta_time)
 {
 	auto it = p1_bullet_list_.begin();
+
 	while (it != p1_bullet_list_.end()) {
 		(*it)->Update(delta_time);
 		if (!(*it)->is_alive_) {
