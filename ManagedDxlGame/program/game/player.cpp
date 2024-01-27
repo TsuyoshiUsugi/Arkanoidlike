@@ -4,12 +4,12 @@
 #include "normal_shoot.h"
 #include "bounce_shoot.h"
 
-Player::Player(PlayerType playerType) {
-	playerType_ = playerType;
+Player::Player(PlayerType player_type) {
+	player_type_ = player_type;
 	width_ = 30;
 	hight_ = 50;
 
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 		pos_ = left_player_start_vector3_pos_;
 	else
 	{
@@ -25,13 +25,13 @@ Player::Player(PlayerType playerType) {
 //íeÇÃî≠éÀèàóù
 void Player::ShootBullet()
 {
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDownTrigger(eKeys::KB_LSHIFT)) {
 			tnl::Vector3 spawn_pos = pos_ + right_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
-				shoot_methods_[i]->Shoot(spawn_pos, playerType_);
+				shoot_methods_[i]->Shoot(spawn_pos, player_type_);
 			}
 		}
 	}
@@ -41,7 +41,7 @@ void Player::ShootBullet()
 			tnl::Vector3 spawn_pos = pos_ + left_shoot_bullet_pos_;
 			for (size_t i = 0; i < shoot_methods_.size(); i++)
 			{
-				shoot_methods_[i]->Shoot(spawn_pos, playerType_);
+				shoot_methods_[i]->Shoot(spawn_pos, player_type_);
 			}
 		}
 	}
@@ -49,7 +49,7 @@ void Player::ShootBullet()
 
 void Player::MoveHorizontal()
 {
-	if (playerType_ == PlayerType::Player1)
+	if (player_type_ == PlayerType::Player1)
 	{
 		if (tnl::Input::IsKeyDown(eKeys::KB_W)) pos_.y -= 5.0f;
 		if (tnl::Input::IsKeyDown(eKeys::KB_S)) pos_.y += 5.0f;

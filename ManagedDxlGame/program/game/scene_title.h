@@ -6,9 +6,9 @@ class SceneTitle : public SceneBase {
 private:
 	tnl::Vector3 show_title_pos = { 200, 350, 0 };
 	int ghl_;
-	float flash_time_ = 1.0f;
+	float flash_time_ = 1.0f; 
 	float current_time_ = 0.0f;
-public :
+public:
 	SceneTitle();
 	void Update( float delta_time ) override ;
 	void Draw() override ;

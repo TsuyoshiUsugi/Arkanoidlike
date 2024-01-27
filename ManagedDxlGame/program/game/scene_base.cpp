@@ -7,7 +7,6 @@ void SceneBase::Update(float delta_time) {
 	while (it != objects_.end()) {
 		(*it)->Update(delta_time);
 		if (!(*it)->is_alive_) {
-			delete (*it);
 			it = objects_.erase(it);
 			continue;
 		}
@@ -16,7 +15,7 @@ void SceneBase::Update(float delta_time) {
 }
 
 void SceneBase::Draw() {
-	for (auto obj : objects_) {
+	for (auto& obj : objects_) {
 		obj->Draw();
 	}
 }

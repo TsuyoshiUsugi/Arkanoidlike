@@ -15,10 +15,10 @@ private:
 	tnl::Vector3 left_shoot_bullet_pos_ = {-20, 0, 0};
 	tnl::Vector3 right_shoot_bullet_pos_ = {20, 0, 0};
 	tnl::Vector3 dir_ = {1, 0, 0};
-	PlayerType playerType_;
+	PlayerType player_type_;
 	std::vector<ShootMethodBase*> shoot_methods_;
 public:
-	Player(PlayerType playerType);
+	Player(PlayerType player_type);
 
 	void ShootBullet();
 	void MoveHorizontal();

@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <memory>
 
 class Object ;
 
@@ -9,6 +10,6 @@ public :
 	virtual void Update(float delta_time);
 	virtual void Draw();
 
-	std::list<Object*> objects_ ;
+	std::list<std::shared_ptr<Object>> objects_ ;
 };
 

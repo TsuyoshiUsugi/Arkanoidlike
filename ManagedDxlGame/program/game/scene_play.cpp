@@ -10,9 +10,9 @@
 
 ScenePlay::ScenePlay() {
 	SetDrawBright(255, 255, 255); // ここで色を白に戻す
-	player_1_ = new Player(PlayerType::Player1);
+	player_1_ = std::make_shared<Player>(PlayerType::Player1);
 	objects_.emplace_back( player_1_ );
-	player_2_ = new Player(PlayerType::Player2);
+	player_2_ = std::make_shared<Player>(PlayerType::Player2);
 	objects_.emplace_back( player_2_ );
 	map_manager_ = std::make_shared<map_manager>();
 	map_manager_->LoadMap();
@@ -91,7 +91,7 @@ void ScenePlay::CheckHit() {
 	auto obj_it = objects_.begin();
 
 	while (obj_it != objects_.end()) {
-		ItemBlock* item_block_ptr = dynamic_cast<ItemBlock*>(*obj_it);
+		std::shared_ptr<ItemBlock> item_block_ptr = std::dynamic_pointer_cast<ItemBlock>(*obj_it);
 		if (item_block_ptr) {
 			if (tnl::IsIntersectRect(item_block_ptr->pos_, item_block_ptr->size_.x, item_block_ptr->size_.y,
 				player_1_->pos_, player_1_->width_, player_1_->hight_))
@@ -147,7 +147,6 @@ void ScenePlay::UpdateBullet(float delta_time)
 	while (it != p1_bullet_list_.end()) {
 		(*it)->Update(delta_time);
 		if (!(*it)->is_alive_) {
-			delete (*it);
 			it = p1_bullet_list_.erase(it);
 			continue;
 		}
@@ -158,7 +157,6 @@ void ScenePlay::UpdateBullet(float delta_time)
 	while (it != p2_bullet_list_.end()) {
 		(*it)->Update(delta_time);
 		if (!(*it)->is_alive_) {
-			delete (*it);
 			it = p2_bullet_list_.erase(it);
 			continue;
 		}
@@ -174,10 +172,10 @@ void ScenePlay::Update(float delta_time) {
 
 void ScenePlay::DrawBullet()
 {
-	for (auto obj : p1_bullet_list_) {
+	for (auto& obj : p1_bullet_list_) {
 		obj->Draw();
 	}
-	for (auto obj : p2_bullet_list_) {
+	for (auto& obj : p2_bullet_list_) {
 		obj->Draw();
 	}
 	map_manager_->DrawMap();

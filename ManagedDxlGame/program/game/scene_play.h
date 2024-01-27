@@ -7,10 +7,10 @@
 
 class ScenePlay : public SceneBase {
 private:
-	Player* player_1_;
-	Player* player_2_;
-	std::list<Bullet*> p1_bullet_list_;
-	std::list<Bullet*> p2_bullet_list_;
+	std::shared_ptr<Player> player_1_;
+	std::shared_ptr<Player> player_2_;
+	std::list<std::shared_ptr<Bullet>> p1_bullet_list_;
+	std::list<std::shared_ptr<Bullet>> p2_bullet_list_;
 	std::shared_ptr<map_manager> map_manager_;
 public :
 	ScenePlay();
