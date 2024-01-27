@@ -4,6 +4,8 @@ void ItemBlock::update(float delta_time)
 {
 	if (pos_.x < 0 || pos_.x > 1500) is_alive_ = false;
 	pos_ += move_dir_ * speed_;
+
+
 }
 
 void ItemBlock::draw()

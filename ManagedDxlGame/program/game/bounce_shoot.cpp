@@ -4,6 +4,11 @@
 #include "scene_play.h"
 #include "game_mamanger.h"
 
+BounceShoot::BounceShoot(tnl::Vector3 dir)
+{
+
+}
+
 void BounceShoot::shoot(tnl::Vector3 pos, PlayerType player_type)
 {
 	ScenePlay* sc_play = dynamic_cast<ScenePlay*>(

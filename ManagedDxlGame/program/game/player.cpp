@@ -18,7 +18,7 @@ Player::Player(PlayerType playerType) {
 	}
 
 	shoot_methods_.push_back(new NormalShoot());
-	shoot_methods_.push_back(new BounceShoot());
+	//shoot_methods_.push_back(new BounceShoot());
 }
 
 
