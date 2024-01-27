@@ -8,6 +8,7 @@
 #include "item_block.h"
 
 ScenePlay::ScenePlay() {
+	SetDrawBright(255, 255, 255); // ここで色を白に戻す
 	player_1_ = new Player(PlayerType::Player1);
 	objects_.emplace_back( player_1_ );
 	player_2_ = new Player(PlayerType::Player2);

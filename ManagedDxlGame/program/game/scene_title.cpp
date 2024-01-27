@@ -2,6 +2,9 @@
 #include "game_mamanger.h"
 #include "scene_title.h"
 #include "scene_play.h"
+#include <time.h>
+#include <string>
+#include <numbers>
 
 SceneTitle::SceneTitle()
 {
@@ -18,6 +21,10 @@ void SceneTitle::update( float delta_time ) {
 		mgr->changeScene( new ScenePlay() );
 	}
 
+    current_time_ += delta_time;
+    if (current_time_ > flash_time_) {
+		current_time_ = 0.0f;
+	}
 }
 
 void SceneTitle::draw() {
@@ -37,8 +44,9 @@ void SceneTitle::draw() {
 
     // "PRESS ENTER" ÇÃï∂éöÉTÉCÉYÇê›íË
     SetFontSize(30);
-    DrawStringEx(500, 600, -1, "PRESS ENTER");
+    if (current_time_ < flash_time_ / 2) {
+        DrawStringEx(500, 600, -1, "PRESS ENTER");
+	}
 }
-
 
 
