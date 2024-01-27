@@ -6,6 +6,6 @@ class BounceShoot : public ShootMethodBase
 {
 public:
 	BounceShoot(tnl::Vector3 dir);
-	void shoot(tnl::Vector3 pos, PlayerType player_type) override;
+	void Shoot(tnl::Vector3 pos, PlayerType player_type) override;
 };
 

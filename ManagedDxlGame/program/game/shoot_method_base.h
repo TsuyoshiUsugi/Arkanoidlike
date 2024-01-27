@@ -9,6 +9,6 @@ class ShootMethodBase
 {
 public :
 	tnl::Vector3 move_dir_ = {1, 0, 0};
-	virtual void shoot(tnl::Vector3 pos, PlayerType player_type) = 0;
+	virtual void Shoot(tnl::Vector3 pos, PlayerType player_type) = 0;
 };
 

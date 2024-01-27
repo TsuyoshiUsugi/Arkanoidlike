@@ -10,7 +10,7 @@ Bullet::Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir, PlayerTyp
 }
 
 // バレットアップデート
-void Bullet::update(float delta_time) {
+void Bullet::Update(float delta_time) {
 	// 移動処理と画面外に出たら生存フラグ off
 	pos_ += dir_ * speed_;
 	if (pos_.x < 0 || pos_.x > 1500) is_alive_ = false;
@@ -18,6 +18,6 @@ void Bullet::update(float delta_time) {
 }
 
 // バレット描画
-void Bullet::draw() {
+void Bullet::Draw() {
 	DrawCircle(pos_.x, pos_.y, 3, -1, false);
 }

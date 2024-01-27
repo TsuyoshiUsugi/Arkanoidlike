@@ -11,6 +11,6 @@ private:
 	PlayerType player_type_;
 public:
 	Bullet(const tnl::Vector3& spawn_pos, const tnl::Vector3& dir, PlayerType shoot_playerType);
-	void update(float delta_time) override ;
-	void draw() override ;
+	void Update(float delta_time) override ;
+	void Draw() override ;
 };

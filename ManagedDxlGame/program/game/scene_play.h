@@ -21,8 +21,8 @@ public :
 	void UpdateBullet(float delta_time);
 	void CheckHit();
 
-	void update(float delta_time) override ;
-	void drawBullet();
-	void draw() override;
+	void Update(float delta_time) override ;
+	void DrawBullet();
+	void Draw() override;
 };
 

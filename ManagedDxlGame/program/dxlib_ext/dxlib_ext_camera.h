@@ -35,7 +35,7 @@ namespace dxe {
 		tnl::Matrix view_;
 		tnl::Matrix proj_;
 
-		void update() {
+		void Update() {
 			view_ = tnl::Matrix::LookAtLH(pos_, target_, up_);
 			proj_ = tnl::Matrix::PerspectiveFovLH(angle_, aspect_, near_, far_);
 		}

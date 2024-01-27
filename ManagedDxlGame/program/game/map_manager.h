@@ -24,8 +24,8 @@ private:
 public:
     //保持しているブロック
     std::vector<std::shared_ptr<in_game_block>> blocks_;
-    void load_map();
-    void draw_map();
+    void LoadMap();
+    void DrawMap();
 };
 
 

@@ -3,7 +3,7 @@
 #include "in_game_block.h"
 
 //Map情報をロードします
-void map_manager::load_map()
+void map_manager::LoadMap()
 {
     map_csv_ = tnl::LoadCsv<int>("map.csv");
 
@@ -36,9 +36,9 @@ void map_manager::load_map()
 }
 
 //Mapの描画処理
-void map_manager::draw_map()
+void map_manager::DrawMap()
 {
     for (const auto& block : blocks_) {
-        block->draw();
+        block->Draw();
     }
 }

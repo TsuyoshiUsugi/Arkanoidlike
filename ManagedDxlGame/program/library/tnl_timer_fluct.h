@@ -251,7 +251,7 @@ void gameMain(float deltatime) {
 		// ret.... [ true : •Ï“®Š®—¹ ] [ false : •Ï“®’† ]
 		//==============================================================================================================
 		inline bool isCompleteUpdate( const float deltatime ) {
-			return sequence_.update(deltatime);
+			return sequence_.Update(deltatime);
 		}
 
 	};

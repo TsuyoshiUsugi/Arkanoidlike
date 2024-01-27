@@ -10,8 +10,8 @@ private:
 	float current_time_ = 0.0f;
 public :
 	SceneTitle();
-	void update( float delta_time ) override ;
-	void draw() override ;
+	void Update( float delta_time ) override ;
+	void Draw() override ;
 	bool FlashString(const float delta_time);
 };
 

@@ -9,9 +9,9 @@ BounceShoot::BounceShoot(tnl::Vector3 dir)
 
 }
 
-void BounceShoot::shoot(tnl::Vector3 pos, PlayerType player_type)
+void BounceShoot::Shoot(tnl::Vector3 pos, PlayerType player_type)
 {
-	ScenePlay* sc_play = dynamic_cast<ScenePlay*>(
+	std::shared_ptr<ScenePlay> sc_play = std::dynamic_pointer_cast<ScenePlay>(
 		GameManager::GetInstance()->process_scene_);
 
 	// ’e‚ÌˆÚ“®•ûŒü‚ğƒvƒŒƒCƒ„[‚ÌŒü‚¢‚Ä‚¢‚é•ûŒü‚É‚·‚é

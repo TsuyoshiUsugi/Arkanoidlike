@@ -5,51 +5,47 @@
 #include "scene_play.h"
 
 GameManager::GameManager() {
-
-	process_scene_ = new SceneTitle() ;
-	setWinner(PlayerType::None);
+	process_scene_ = std::make_shared<SceneTitle>() ;
+	SetWinner(PlayerType::None);
 	SetWindowSize(1620, 780);
 }
 
-GameManager::~GameManager() {
-}
-
-GameManager* GameManager::GetInstance() {
-	static GameManager* instance = nullptr;
-	if (!instance) instance = new GameManager();
+std::shared_ptr<GameManager> GameManager::GetInstance() {
+	static std::shared_ptr<GameManager> instance = nullptr;
+	if (!instance) instance = std::make_shared<GameManager>();
 	return instance;
 }
 
-void GameManager::setWinner(PlayerType winner)
+void GameManager::SetWinner(PlayerType winner)
 {
 	winner_ = winner;
 }
 
-PlayerType GameManager::getWinner()
+PlayerType GameManager::GetWinner()
 {
 	return winner_;
 }
 
 
 void GameManager::Destroy() {
-	delete GetInstance() ;
+	//sdelete GetInstance() ;
 }
 
-void GameManager::update(float delta_time) {
+void GameManager::Update(float delta_time) {
 
-	process_scene_->update(delta_time);
-
-}
-
-void GameManager::draw() {
-
-	process_scene_->draw();
+	process_scene_->Update(delta_time);
 
 }
 
-void GameManager::changeScene(SceneBase* scene) {
+void GameManager::Draw() {
+
+	process_scene_->Draw();
+
+}
+
+void GameManager::ChangeScene(std::shared_ptr<SceneBase> scene) {
 	if (process_scene_ != nullptr) {
-		delete process_scene_;
+		//delete process_scene_;
 		process_scene_ = nullptr;
 	}
 	process_scene_ = scene;

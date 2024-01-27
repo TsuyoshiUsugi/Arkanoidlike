@@ -77,7 +77,7 @@ namespace tnl {
 		void jumpSeekFrame(uint32_t frame);
 
 		// アップデート処理( 毎フレーム実行 )
-		void update(const double delta_time);
+		void Update(const double delta_time);
 
 
 		//-------------------------------------------------------------------------------------------------------
