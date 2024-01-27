@@ -96,14 +96,16 @@ void ScenePlay::CheckHit() {
 			if (tnl::IsIntersectRect(item_block_ptr->pos_, item_block_ptr->size_.x, item_block_ptr->size_.y,
 				player_1_->pos_, player_1_->width_, player_1_->hight_))
 			{	//プレイヤーの１の判定
-				player_1_->AddShootMethod(new BounceShoot(tnl::Vector3(1, GetRand(1), 0)));
+				auto dir = tnl::Vector3(1, (float)GetRand(2) - 1, 0);
+				player_1_->AddShootMethod(new BounceShoot(dir));
 				objects_.erase(obj_it);
 				break;
 			}
 			else if (tnl::IsIntersectRect(item_block_ptr->pos_, item_block_ptr->size_.x, item_block_ptr->size_.y,
 				player_2_->pos_, player_2_->width_, player_2_->hight_))
 			{	//プレイヤーの２の判定
-				player_2_->AddShootMethod(new BounceShoot(tnl::Vector3(-1, GetRand(1), 0)));
+				auto dir = tnl::Vector3(-1, (float)GetRand(2) - 1, 0);
+				player_2_->AddShootMethod(new BounceShoot(dir));
 				objects_.erase(obj_it);
 				break;
 			}
