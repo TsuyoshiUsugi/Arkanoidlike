@@ -167,14 +167,23 @@
     <ClCompile Include="program\game\item_block.cpp">
       <Filter>program\[003] game</Filter>
     </ClCompile>
-    <ClCompile Include="program\game\shoot_method_base.cpp">
-      <Filter>program</Filter>
+    <ClCompile Include="program\game\bounce_shoot.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="explode_effect.cpp">
+      <Filter>program\[003] game</Filter>
     </ClCompile>
     <ClCompile Include="program\game\normal_shoot.cpp">
-      <Filter>program</Filter>
+      <Filter>program\[003] game</Filter>
     </ClCompile>
-    <ClCompile Include="program\game\bounce_shoot.cpp">
-      <Filter>program</Filter>
+    <ClCompile Include="program\game\shoot_method_base.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\game\sound_manager.cpp">
+      <Filter>program\[003] game</Filter>
+    </ClCompile>
+    <ClCompile Include="program\game\explode_effect.cpp">
+      <Filter>program\[003] game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,14 +323,23 @@
     <ClInclude Include="program\game\item_block.h">
       <Filter>program\[003] game</Filter>
     </ClInclude>
-    <ClInclude Include="program\game\shoot_method_base.h">
-      <Filter>program</Filter>
+    <ClInclude Include="program\game\bounce_shoot.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="explode_effect.h">
+      <Filter>program\[003] game</Filter>
     </ClInclude>
     <ClInclude Include="program\game\normal_shoot.h">
-      <Filter>program</Filter>
+      <Filter>program\[003] game</Filter>
     </ClInclude>
-    <ClInclude Include="program\game\bounce_shoot.h">
-      <Filter>program</Filter>
+    <ClInclude Include="program\game\shoot_method_base.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\sound_manager.h">
+      <Filter>program\[003] game</Filter>
+    </ClInclude>
+    <ClInclude Include="program\game\explode_effect.h">
+      <Filter>program\[003] game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

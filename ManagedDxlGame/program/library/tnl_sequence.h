@@ -438,20 +438,20 @@ namespace tnl {
 		// コルーチン機能付きシーケンス宣言マクロ
 		// arg1.. 包含クラス名
 		// arg2.. 初期シーケンス
-		#define TNL_CO_SEQUENCE( class_name, start_func )	tnl::Sequence<class_name> tnl_sequence_ = tnl::Sequence<class_name>(this, start_func);
+		#define TNL_CO_SEQUENCE( class_name, start_func )	tnl::Sequence<class_name> on_clear_sequence_ = tnl::Sequence<class_name>(this, start_func);
 
 		// コルーチンシーケンス終了処理
 		// tips.. コルーチン使用メソッドの最後に必ずコールすること
-		#define TNL_SEQ_CO_END								tnl_sequence_._co_reset_call_count_(); return true ;
+		#define TNL_SEQ_CO_END								on_clear_sequence_._co_reset_call_count_(); return true ;
 
 		// コルーチン実行フレーム数の取得
-		#define TNL_SEQ_CO_PROG_FRAME						tnl_sequence_._co_get_prog_frame_()
+		#define TNL_SEQ_CO_PROG_FRAME						on_clear_sequence_._co_get_prog_frame_()
 
 		// コルーチン実行時間の取得
-		#define TNL_SEQ_CO_PROG_TIME						tnl_sequence_._co_get_prog_time_()
+		#define TNL_SEQ_CO_PROG_TIME						on_clear_sequence_._co_get_prog_time_()
 
 		// 当該コルーチンの破棄
-		#define TNL_SEQ_CO_BREAK							{ tnl_sequence_._co_break_() ; return ; }
+		#define TNL_SEQ_CO_BREAK							{ on_clear_sequence_._co_break_() ; return ; }
 
 
 		// コルーチン内部処理実装マクロ( フレーム数指定 )
@@ -460,7 +460,7 @@ namespace tnl {
 		// arg3... コルーチンで実行するユーザ定義処理( void() ラムダ式 )
 		// tips... 無限ループを指定した場合でも内部で経過フレーム数をカウントしています
 		// ....... フレーム数カウントは int32_t を超えると 0 にリセットされることに注意
-		#define TNL_SEQ_CO_FRM_YIELD_RETURN( lim_frame, delta_time, logic )		if (tnl_sequence_._co_yield_by_frame_( lim_frame, delta_time, logic ) ) return true ;
+		#define TNL_SEQ_CO_FRM_YIELD_RETURN( lim_frame, delta_time, logic )		if (on_clear_sequence_._co_yield_by_frame_( lim_frame, delta_time, logic ) ) return true ;
 
 		// コルーチン内部処理実装マクロ( 時間指定 )
 		// arg1... 実行時間
@@ -468,18 +468,18 @@ namespace tnl {
 		// arg3... コルーチンで実行するユーザ定義処理( void() ラムダ式 )
 		// tips... 時間指定した場合でも内部で経過フレーム数をカウントしています
 		// ....... フレーム数カウントは int32_t を超えると 0 にリセットされることに注意
-		#define TNL_SEQ_CO_TIM_YIELD_RETURN( lim_time, delta_time, logic )		if (tnl_sequence_._co_yield_by_time_( lim_time, delta_time, logic ) ) return true ;
+		#define TNL_SEQ_CO_TIM_YIELD_RETURN( lim_time, delta_time, logic )		if (on_clear_sequence_._co_yield_by_time_( lim_time, delta_time, logic ) ) return true ;
 
 
 		// コルーチン内部(TNL_SEQ_CO_FRM_YIELD_RETURN) の最初のフレームなら true
-		#define TNL_SEQ_CO_YIELD_FRM_IS_START		( 0 == tnl_sequence_._co_get_prog_frame_() )
+		#define TNL_SEQ_CO_YIELD_FRM_IS_START		( 0 == on_clear_sequence_._co_get_prog_frame_() )
 		// コルーチン内部(TNL_SEQ_CO_FRM_YIELD_RETURN) の最後のフレームなら true
-		#define TNL_SEQ_CO_YIELD_FRM_IS_END			( tnl_sequence_._co_get_limit_frame_() == (tnl_sequence_._co_get_prog_frame_()+1) )
+		#define TNL_SEQ_CO_YIELD_FRM_IS_END			( on_clear_sequence_._co_get_limit_frame_() == (on_clear_sequence_._co_get_prog_frame_()+1) )
 
 		// コルーチン内部(TNL_SEQ_CO_TIM_YIELD_RETURN) の最初のフレームなら true
-		#define TNL_SEQ_CO_YIELD_TIM_IS_START		( 0 == tnl_sequence_._co_get_prog_frame_() )
+		#define TNL_SEQ_CO_YIELD_TIM_IS_START		( 0 == on_clear_sequence_._co_get_prog_frame_() )
 		// コルーチン内部(TNL_SEQ_CO_TIM_YIELD_RETURN) の最初のフレームなら true
-		#define TNL_SEQ_CO_YIELD_TIM_IS_END			( tnl_sequence_._co_get_limit_time_() <= tnl_sequence_._co_get_prog_time_() )
+		#define TNL_SEQ_CO_YIELD_TIM_IS_END			( on_clear_sequence_._co_get_limit_time_() <= on_clear_sequence_._co_get_prog_time_() )
 
 
 		//------------------------------------------------------------------------------------------------------------------------
