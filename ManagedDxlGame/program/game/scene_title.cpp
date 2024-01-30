@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string>
 #include <numbers>
+#include "sound_manager.h"
 
 SceneTitle::SceneTitle()
 {
@@ -18,6 +19,7 @@ void SceneTitle::Update( float delta_time ) {
 
 	if (tnl::Input::IsKeyDownTrigger(eKeys::KB_RETURN)) {
 		std::shared_ptr<GameManager> mgr_ = GameManager::GetInstance();
+        SoundManager::GetInstance()->PlaySE(SoundType::Enter);
 		mgr_->ChangeScene( std::make_shared<ScenePlay>() );
 	}
 

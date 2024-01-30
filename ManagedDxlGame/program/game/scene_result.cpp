@@ -33,5 +33,9 @@ void SceneResult::Draw() {
     {
         DrawStringEx(show_title_pos.x, show_title_pos.y, -1, "Player2 win");
     }
+    // "PRESS ENTER" の文字サイズを設定
+    SetFontSize(30);
+    DrawStringEx(500, 600, -1, "PRESS ENTER");
+    
 }
 

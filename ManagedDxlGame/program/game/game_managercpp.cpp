@@ -8,6 +8,7 @@ GameManager::GameManager() {
 	process_scene_ = std::make_shared<SceneTitle>() ;
 	SetWinner(PlayerType::None);
 	SetWindowSize(1620, 780);
+	SoundManager::GetInstance()->LoadSound();
 }
 
 std::shared_ptr<GameManager> GameManager::GetInstance() {
